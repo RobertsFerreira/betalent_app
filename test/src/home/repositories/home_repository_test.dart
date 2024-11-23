@@ -13,11 +13,10 @@ void main() {
   final dioMock = DioMock();
 
   final repository = HomeRepository(dio: dioMock);
-  final params = {'page': 1, 'limit': 0};
 
   test('Should be return a list of employees', () async {
     when(
-      () => dioMock.get('/employees', queryParameters: params),
+      () => dioMock.get('/employees'),
     ).thenAnswer(
       (_) async => Response(
         requestOptions: RequestOptions(),
@@ -26,10 +25,7 @@ void main() {
       ),
     );
 
-    final employees = await repository.getEmployees(
-      page: params['page']!,
-      limit: params['limit']!,
-    );
+    final employees = await repository.getEmployees();
 
     expect(employees, isA<List<EmployeeModel>>());
   });
@@ -37,16 +33,13 @@ void main() {
   test('Should return a GenericError when an error occurs in the request.',
       () async {
     when(
-      () => dioMock.get('/employees', queryParameters: params),
+      () => dioMock.get('/employees'),
     ).thenThrow(
       Exception('Failed to retrieve employees'),
     );
 
     try {
-      await repository.getEmployees(
-        page: params['page']!,
-        limit: params['limit']!,
-      );
+      await repository.getEmployees();
     } catch (e) {
       expect(e, isA<GenericError>());
       final error = e as GenericError;
@@ -59,7 +52,7 @@ void main() {
       'Should return an ApiFetchException when an error occurs in the request.',
       () async {
     when(
-      () => dioMock.get('/employees', queryParameters: params),
+      () => dioMock.get('/employees'),
     ).thenThrow(
       DioException(
         message: 'Failed to retrieve employees',
@@ -72,10 +65,7 @@ void main() {
     );
 
     try {
-      await repository.getEmployees(
-        page: params['page']!,
-        limit: params['limit']!,
-      );
+      await repository.getEmployees();
     } catch (e) {
       expect(e, isA<ApiFetchException>());
       final error = e as ApiFetchException;

@@ -9,16 +9,11 @@ class HomeRepository {
   HomeRepository({required Dio dio}) : _dio = dio;
 
   Future<List<EmployeeModel>> getEmployees({
-    required int page,
-    required int limit,
     EnumEmployeeFilter typeFilter = EnumEmployeeFilter.nenhum,
     String valueFilter = '',
   }) async {
     try {
-      final Map<String, dynamic> params = {
-        'page': page,
-        'limit': limit,
-      };
+      final Map<String, dynamic> params = {};
 
       if (typeFilter != EnumEmployeeFilter.nenhum) {
         final filterParams = {typeFilter.slug: valueFilter};
