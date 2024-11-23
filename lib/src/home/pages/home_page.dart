@@ -1,3 +1,4 @@
+import 'package:betalent_app/src/home/components/table/table_component.dart';
 import 'package:flutter/material.dart';
 
 import '../components/text_field_component.dart';
@@ -70,6 +71,8 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(height: 15),
           TextFieldComponent(hintText: 'Pesquisar'),
+          SizedBox(height: 24),
+          TableComponent(),
         ],
       ),
     );
