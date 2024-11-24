@@ -40,14 +40,19 @@ class _TableComponentState extends State<TableComponent> {
             //Header
             const TableHeaderComponent(),
             //Body
-            ListView.separated(
-              itemCount: 5,
-              shrinkWrap: true,
-              separatorBuilder: (_, __) => const Divider(),
-              itemBuilder: (_, index) {
-                final employee = widget.employees[index];
-                return TableRowComponent(employee: employee);
-              },
+            SizedBox(
+              height: 590,
+              child: SingleChildScrollView(
+                child: ListView.separated(
+                  itemCount: widget.employees.length,
+                  shrinkWrap: true,
+                  separatorBuilder: (_, __) => const Divider(),
+                  itemBuilder: (_, index) {
+                    final employee = widget.employees[index];
+                    return TableRowComponent(employee: employee);
+                  },
+                ),
+              ),
             ),
           ],
         ),
