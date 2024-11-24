@@ -1,3 +1,5 @@
+import 'package:betalent_app/src/extensions/date_extensions.dart';
+import 'package:betalent_app/src/extensions/string_extensions.dart';
 import 'package:betalent_app/src/home/models/employee_model.dart';
 import 'package:flutter/material.dart';
 
@@ -88,7 +90,7 @@ class _TableRowComponentState extends State<TableRowComponent> {
                 ),
               ),
               Text(
-                employee.admissionDate.toIso8601String(),
+                employee.admissionDate.brl,
                 style: const TextStyle(
                   fontSize: 16,
                   fontFamily: 'HelveticaNeue',
@@ -114,8 +116,7 @@ class _TableRowComponentState extends State<TableRowComponent> {
                 ),
               ),
               Text(
-                // '+55 (32) 55555-5555',
-                employee.phoneNumber,
+                employee.phoneNumber.phoneNumberBrl,
                 style: const TextStyle(
                   fontSize: 16,
                   fontFamily: 'HelveticaNeue',
