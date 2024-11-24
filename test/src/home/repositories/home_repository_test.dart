@@ -14,9 +14,11 @@ void main() {
 
   final repository = HomeRepository(client: dioMock);
 
+  final Map<String, dynamic> queryParams = {};
+
   test('Should be return a list of employees', () async {
     when(
-      () => dioMock.get('/employees'),
+      () => dioMock.get('/employees', queryParameters: queryParams),
     ).thenAnswer(
       (_) async => Response(
         requestOptions: RequestOptions(),
@@ -33,7 +35,7 @@ void main() {
   test('Should return a GenericError when an error occurs in the request.',
       () async {
     when(
-      () => dioMock.get('/employees'),
+      () => dioMock.get('/employees', queryParameters: queryParams),
     ).thenThrow(
       Exception('Failed to retrieve employees'),
     );
@@ -52,7 +54,7 @@ void main() {
       'Should return an ApiFetchException when an error occurs in the request.',
       () async {
     when(
-      () => dioMock.get('/employees'),
+      () => dioMock.get('/employees', queryParameters: queryParams),
     ).thenThrow(
       DioException(
         message: 'Failed to retrieve employees',
