@@ -6,9 +6,9 @@ import 'package:dio/dio.dart';
 class HomeRepository {
   final Dio _dio;
 
-  HomeRepository({required Dio dio}) : _dio = dio;
+  HomeRepository({required Dio client}) : _dio = client;
 
-  Future<List<EmployeeModel>> getEmployees({
+  Future<List<EmployeeModel>> fetchEmployees({
     EnumEmployeeFilter typeFilter = EnumEmployeeFilter.nenhum,
     String valueFilter = '',
   }) async {
@@ -22,8 +22,7 @@ class HomeRepository {
 
       final response = await _dio.get('/employees', queryParameters: params);
 
-      final employeesMap =
-          (response.data['employees'] as List<Map<String, dynamic>>);
+      final employeesMap = (response.data as List).cast<Map<String, dynamic>>();
 
       final employees =
           employeesMap.map<EmployeeModel>(EmployeeModel.fromJson).toList();

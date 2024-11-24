@@ -1,18 +1,30 @@
 import 'package:betalent_app/src/home/components/table/table_component.dart';
+import 'package:betalent_app/src/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../components/text_field_component.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  late final HomeController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = HomeController();
+    _fetchEmployees();
+  }
+
+  Future<void> _fetchEmployees() async {
+    await _controller.fetchEmployees();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,11 +66,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: const Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 24),
-          Padding(
+          const SizedBox(height: 24),
+          const Padding(
             padding: EdgeInsets.only(left: 18),
             child: Text(
               'Funcionários',
@@ -69,10 +81,27 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          SizedBox(height: 15),
-          TextFieldComponent(hintText: 'Pesquisar'),
-          SizedBox(height: 24),
-          TableComponent(),
+          const SizedBox(height: 15),
+          const TextFieldComponent(hintText: 'Pesquisar'),
+          const SizedBox(height: 24),
+          ValueListenableBuilder(
+            valueListenable: _controller.state,
+            builder: (_, newState, __) {
+              if (newState.isLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              if (newState.isError) {
+                return Center(
+                  child: Text(newState.messageError),
+                );
+              }
+              return TableComponent(
+                employees: newState.employees,
+              );
+            },
+          ),
         ],
       ),
     );

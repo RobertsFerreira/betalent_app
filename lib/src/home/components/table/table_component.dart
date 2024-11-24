@@ -1,10 +1,12 @@
 import 'package:betalent_app/src/home/components/table/table_row.dart';
+import 'package:betalent_app/src/home/models/employee_model.dart';
 import 'package:flutter/material.dart';
 
 import 'table_header.dart';
 
 class TableComponent extends StatefulWidget {
-  const TableComponent({super.key});
+  final List<EmployeeModel> employees;
+  const TableComponent({super.key, required this.employees});
 
   @override
   State<TableComponent> createState() => _TableComponentState();
@@ -13,6 +15,12 @@ class TableComponent extends StatefulWidget {
 class _TableComponentState extends State<TableComponent> {
   @override
   Widget build(BuildContext context) {
+    if (widget.employees.isEmpty) {
+      return const Center(
+        child: Text('No Employees Available'),
+      );
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
@@ -37,7 +45,8 @@ class _TableComponentState extends State<TableComponent> {
               shrinkWrap: true,
               separatorBuilder: (_, __) => const Divider(),
               itemBuilder: (_, index) {
-                return const TableRowComponent();
+                final employee = widget.employees[index];
+                return TableRowComponent(employee: employee);
               },
             ),
           ],

@@ -12,7 +12,7 @@ class DioMock extends Mock implements Dio {}
 void main() {
   final dioMock = DioMock();
 
-  final repository = HomeRepository(dio: dioMock);
+  final repository = HomeRepository(client: dioMock);
 
   test('Should be return a list of employees', () async {
     when(
@@ -25,7 +25,7 @@ void main() {
       ),
     );
 
-    final employees = await repository.getEmployees();
+    final employees = await repository.fetchEmployees();
 
     expect(employees, isA<List<EmployeeModel>>());
   });
@@ -39,7 +39,7 @@ void main() {
     );
 
     try {
-      await repository.getEmployees();
+      await repository.fetchEmployees();
     } catch (e) {
       expect(e, isA<GenericError>());
       final error = e as GenericError;
@@ -65,7 +65,7 @@ void main() {
     );
 
     try {
-      await repository.getEmployees();
+      await repository.fetchEmployees();
     } catch (e) {
       expect(e, isA<ApiFetchException>());
       final error = e as ApiFetchException;
