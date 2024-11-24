@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 
 class TextFieldComponent extends StatelessWidget {
   final String hintText;
-  const TextFieldComponent({super.key, required this.hintText});
+  final Function(String)? onChanged;
+  const TextFieldComponent({super.key, required this.hintText, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: TextFormField(
+        onChanged: onChanged,
         decoration: InputDecoration(
           filled: true,
           fillColor: const Color(0xFFF5F5F5),

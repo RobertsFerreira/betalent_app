@@ -85,7 +85,10 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const SizedBox(height: 15),
-          const TextFieldComponent(hintText: 'Pesquisar'),
+          TextFieldComponent(
+            hintText: 'Pesquisar',
+            onChanged: _controller.filterEmployees,
+          ),
           const SizedBox(height: 24),
           ValueListenableBuilder(
             valueListenable: _controller.state,
@@ -100,9 +103,10 @@ class _HomePageState extends State<HomePage> {
                   child: Text(newState.messageError),
                 );
               }
-              return TableComponent(
-                employees: newState.employees,
-              );
+
+              final employees = newState.employeesFiltered;
+
+              return TableComponent(employees: employees);
             },
           ),
         ],

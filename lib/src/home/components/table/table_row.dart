@@ -12,16 +12,10 @@ class TableRowComponent extends StatefulWidget {
 }
 
 class _TableRowComponentState extends State<TableRowComponent> {
-  late final EmployeeModel employee;
-
-  @override
-  void initState() {
-    super.initState();
-    employee = widget.employee;
-  }
-
   @override
   Widget build(BuildContext context) {
+    final employee = widget.employee;
+
     return ExpansionTile(
       iconColor: const Color(0xFF0500FF),
       collapsedIconColor: const Color(0xFF0500FF),
