@@ -57,8 +57,10 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {},
               icon: const Badge(
                 backgroundColor: Color(0xff0500ff),
+                smallSize: 20,
+                largeSize: 20,
                 label: Text(
-                  '2',
+                  '02',
                   style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700),
                 ),
                 child: Icon(Icons.notifications_none_outlined, size: 24),
