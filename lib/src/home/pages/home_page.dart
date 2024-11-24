@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        forceMaterialTransparency: true,
         leading: const Padding(
           padding: EdgeInsets.only(left: 20, top: 22),
           child: SizedBox(
