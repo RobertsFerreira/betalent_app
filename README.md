@@ -18,58 +18,61 @@
 
 ## Requirimentos
 
-    - Flutter: 3.24.5
-    - Dart: 3.5.4
+
+- Flutter: 3.24.5
+- Dart: 3.5.4
 
 ## Rodar o projeto
 
 1. **Instalar o pacote [json_rest_server](https://pub.dev/packages/json_rest_server) no dart**;
 
-        ```bash
-        dart pub global activate json_rest_server
-        ```
+   ```bash
+   dart pub global activate json_rest_server
+   ```
 
 2. **Clone este repositório da API no GitHub**
 
-        ```bash
-        git clone https://github.com/BeMobile/desafio-mobile
-        ```
+   ```bash
+   git clone https://github.com/BeMobile/desafio-mobile
+   ```
 
 3. **Execute o comando para iniciar a API simulada**
 
-        - Criar a pasta com a configuração do server
+   - Criar a pasta com a configuração do server
 
-        ```bash
-        json_rest_server create ./server
-        ```
+     ```bash
+     json_rest_server create ./server
+     ```
 
-        - Copiar o arquivo database.json para a pasta server e
-        substitua o existente dentro dela
+   - Copiar o arquivo database.json para a pasta server e
+     substitua o existente dentro dela
         
-        - Rode o server
+   - Rode o server
 
-        ```bash
-        cd ./server
-        ```        
-        ```bash
-        json_rest_server run
-        ```
+     ```bash
+     cd ./server
+     ```        
+     ```bash
+     json_rest_server run
+     ```
 
 4. **Clone o repository do Aplicativo**
 
-        ```bash
-        git clone https://github.com/RobertsFerreira/betalent_app.git
-        cd betalent_app
-        ```
+   ```bash
+   git clone https://github.com/RobertsFerreira/betalent_app.git
+   ```
+   ```bash
+   cd betalent_app
+   ```
 
 5. **Executar testes**
 
-        ```bash
-        flutter test
-        ```
+   ```bash
+   flutter test
+   ```
 
 6. **Executar aplicação**
 
-        ```bash
-        flutter run --release
-        ```
+   ```bash
+   flutter run --release
+   ```
