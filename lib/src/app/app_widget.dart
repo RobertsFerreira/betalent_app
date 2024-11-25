@@ -1,4 +1,5 @@
 import 'package:betalent_app/src/home/pages/home_page.dart';
+import 'package:betalent_app/src/splash/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -13,7 +14,11 @@ class AppWidget extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      initialRoute: '/splash',
+      routes: {
+        '/splash': (_) => const SplashPage(),
+        '/home': (_) => const HomePage(),
+      },
     );
   }
 }
