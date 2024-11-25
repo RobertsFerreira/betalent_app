@@ -9,7 +9,8 @@
             "request": "launch",
             "type": "dart",
             "args": [
-                "--dart-define=host=192.168.42.19"
+                "--dart-define=host=192.168.42.19",
+                "--dart-define=port=8080"
             ]
         },
         {

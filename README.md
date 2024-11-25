@@ -80,13 +80,13 @@
    configuradas ao rodar o `Flutter release` utilizando o `dart-define`.
 
     ```bash
-    flutter run --release --dart-define=host=<your host>,port=<your port> 
+    flutter run --release --dart-define=host=<your host> --dart-define=port=<your port> 
     ```
 
     Exemplo:
 
     ```bash
-    flutter run --release --dart-define=host=localhost,port=8080 
+    flutter run --release --dart-define=host=localhost --dart-define=port=8080 
     ```
 
 > [!NOTE]
