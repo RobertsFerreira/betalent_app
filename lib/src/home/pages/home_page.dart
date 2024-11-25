@@ -69,47 +69,50 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 24),
-          const Padding(
-            padding: EdgeInsets.only(left: 18),
-            child: Text(
-              'Funcionários',
-              style: TextStyle(
-                fontSize: 20,
-                fontFamily: 'HelveticaNeue',
-                fontWeight: FontWeight.w500,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 24),
+            const Padding(
+              padding: EdgeInsets.only(left: 18),
+              child: Text(
+                'Funcionários',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'HelveticaNeue',
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 15),
-          TextFieldComponent(
-            hintText: 'Pesquisar',
-            onChanged: _controller.filterEmployees,
-          ),
-          const SizedBox(height: 24),
-          ValueListenableBuilder(
-            valueListenable: _controller.state,
-            builder: (_, newState, __) {
-              if (newState.isLoading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              if (newState.isError) {
-                return Center(
-                  child: Text(newState.messageError),
-                );
-              }
+            const SizedBox(height: 15),
+            TextFieldComponent(
+              hintText: 'Pesquisar',
+              onChanged: _controller.filterEmployees,
+            ),
+            const SizedBox(height: 24),
+            ValueListenableBuilder(
+              valueListenable: _controller.state,
+              builder: (_, newState, __) {
+                if (newState.isLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (newState.isError) {
+                  return Center(
+                    child: Text(newState.messageError),
+                  );
+                }
 
-              final employees = newState.employeesFiltered;
+                final employees = newState.employeesFiltered;
 
-              return TableComponent(employees: employees);
-            },
-          ),
-        ],
+                return TableComponent(employees: employees);
+              },
+            ),
+            const SizedBox(height: 20)
+          ],
+        ),
       ),
     );
   }

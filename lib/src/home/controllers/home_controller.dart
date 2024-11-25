@@ -1,3 +1,4 @@
+import 'package:betalent_app/src/core/settings/settings.dart';
 import 'package:betalent_app/src/home/repositories/home_repository.dart';
 import 'package:betalent_app/src/home/states/home_state.dart';
 import 'package:dio/dio.dart';
@@ -10,7 +11,9 @@ class HomeController {
   late final HomeRepository homeRepository;
 
   HomeController() {
-    _dio = Dio(BaseOptions(baseUrl: 'http://localhost:8080'));
+    final baseUrl = "http://$host:$port";
+
+    _dio = Dio(BaseOptions(baseUrl: baseUrl));
     homeRepository = HomeRepository(client: _dio);
     state = ValueNotifier(HomeState.initial());
   }
