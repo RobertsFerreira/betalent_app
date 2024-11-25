@@ -26,7 +26,7 @@ class _TableRowComponentState extends State<TableRowComponent> {
             height: 34,
             width: 34,
             child: CircleAvatar(
-              child: Image.network(employee.picture),
+              backgroundImage: NetworkImage(employee.picture),
             ),
           ),
           const SizedBox(width: 24),
