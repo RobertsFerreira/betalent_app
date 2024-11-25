@@ -89,8 +89,8 @@
     flutter run --release --dart-define=host=localhost,port=8080 
     ```
 
-   > [!NOTE]
-   > Por padrão o `HOST` é **localhost** e a `PORTA` é **8080**
-   >
-   >
-   > Deixando de preencher os campos esses valores serão utilizados no aplicativo.
+> [!NOTE]
+> Por padrão o `HOST` é **localhost** e a `PORTA` é **8080**
+>
+>
+> Deixando de preencher os campos esses valores serão utilizados no aplicativo.
