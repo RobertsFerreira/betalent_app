@@ -18,7 +18,6 @@
 
 ## Requirimentos
 
-
 - Flutter: 3.24.5
 - Dart: 3.5.4
 
@@ -46,12 +45,13 @@
 
    - Copiar o arquivo database.json para a pasta server e
      substitua o existente dentro dela
-        
+
    - Rode o server
 
      ```bash
      cd ./server
-     ```        
+     ```
+
      ```bash
      json_rest_server run
      ```
@@ -61,6 +61,7 @@
    ```bash
    git clone https://github.com/RobertsFerreira/betalent_app.git
    ```
+
    ```bash
    cd betalent_app
    ```
@@ -73,21 +74,23 @@
 
 6. **Executar aplicação**
 
-   Para executar a aplicação é necessário o `json_server` rodando e com isto é necessário 
+   Para executar a aplicação é necessário o `json_server` rodando e com isto é necessário
    configurar o host e porta para acessa-lo.
-   Para configurar essas duas opções usaremos as variaveis de ambiente, elas podem ser
+   Para configurar essas duas opções usaremos as variáveis de ambiente, elas podem ser
    configuradas ao rodar o `Flutter release` utilizando o `dart-define`.
- 
+
     ```bash
     flutter run --release --dart-define=host=<your host>,port=<your port> 
     ```
+
     Exemplo:
+
     ```bash
     flutter run --release --dart-define=host=localhost,port=8080 
     ```
- 
-> [!NOTE]
-> Por padrão o `HOST` é **localhost** e a `PORTA` é **8080**
-> 
-> 
-> Deixando de preencher os campos esses valores serão utilizados no aplicativo. 
+
+   > [!NOTE]
+   > Por padrão o `HOST` é **localhost** e a `PORTA` é **8080**
+   >
+   >
+   > Deixando de preencher os campos esses valores serão utilizados no aplicativo.
