@@ -29,6 +29,11 @@
    dart pub global activate json_rest_server
    ```
 
+> [!IMPORTANT]
+> Após a instalação e ativação global do package json_rest_server
+> 
+> reinicie todos os prompt de comando.
+
 2. **Clone este repositório da API no GitHub**
 
    ```bash
