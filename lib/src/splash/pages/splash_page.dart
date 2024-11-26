@@ -12,7 +12,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 1)).then((_) => navigationHome());
+    Future.delayed(const Duration(seconds: 2)).then((_) => navigationHome());
   }
 
   void navigationHome() => Navigator.of(context).pushReplacementNamed('/home');
