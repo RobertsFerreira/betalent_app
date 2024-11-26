@@ -145,6 +145,7 @@ class _TableRowComponentState extends State<TableRowComponent> {
             ],
           ),
         ),
+        const SizedBox(height: 32),
       ],
     );
   }
